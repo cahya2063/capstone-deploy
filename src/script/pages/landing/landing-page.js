@@ -150,7 +150,7 @@ export default class LandingPage {
                 </div>
                 <div class="profile-card">
                     <div class="profile-image">
-                        <img src="images/profile/cahya.jpg" alt="Profile Photo" />
+                        <img src="images/profile/rama.jpeg" alt="Profile Photo" />
                     </div>
                     <div class="profile-info">
                         <h2 class="name">M. Rizki Dwi Ramadhan</h2>
@@ -172,7 +172,7 @@ export default class LandingPage {
                 </div>
                 <div class="profile-card">
                     <div class="profile-image">
-                        <img src="images/profile/cahya.jpg" alt="Profile Photo" />
+                        <img src="images/profile/melin.jpeg" alt="Profile Photo" />
                     </div>
                     <div class="profile-info">
                         <h2 class="name">Melina kharisa</h2>
@@ -194,7 +194,7 @@ export default class LandingPage {
                 </div>
                 <div class="profile-card">
                     <div class="profile-image">
-                        <img src="images/profile/cahya.jpg" alt="Profile Photo" />
+                        <img src="images/profile/salsa.jpeg" alt="Profile Photo" />
                     </div>
                     <div class="profile-info">
                         <h2 class="name">Laeli Salsa Anisa</h2>
