@@ -1,6 +1,6 @@
 import routes from "../routes/routes";
 import { getActiveRoute } from "../routes/url-parser";
-import { headerNotLogin } from "../template";
+import { headerLandingPage, headerLogin, headerNotLogin, headerRegister } from "../template";
 
 class App {
   #content = null;
@@ -43,15 +43,35 @@ class App {
     window.addEventListener("auth-change", () => {
       this.#setupNavigationList();
     });
+
+    window.addEventListener("hashchange", () => {
+      this.renderPage(); // render ulang konten halaman
+      this.#setupNavigationList(); // ganti header sesuai halaman
+    });
   }
 
   #setupNavigationList() {
     const navListMain = document.getElementById("navlist-main");
-
     const navList = document.getElementById("navlist");
 
-    navListMain.remove();
-    navList.innerHTML = headerNotLogin();
+    if (navListMain) navListMain.remove(); // hapus nav lama
+
+    const url = getActiveRoute();
+
+    // Tentukan header berdasarkan halaman
+    let headerHTML = "";
+    if (url === "/" || url === "") {
+      headerHTML = headerLandingPage();
+    } else if (url === "/login") {
+      headerHTML = headerLogin();
+    } else if (url === "/register") {
+      headerHTML = headerRegister();
+    } else {
+      headerHTML = headerLandingPage(); // default
+    }
+
+    navList.innerHTML = headerHTML;
+    
   }
 
   async renderPage() {
