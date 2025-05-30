@@ -1,33 +1,34 @@
-import { login } from "../../../data/api";
+import { login } from '../../../data/api';
 
 class LoginPresenter {
-  constructor(view) {
+  constructor({ view }) {
     this._view = view;
   }
 
   async manageLogin({ email, password }) {
     if (password.length < 8) {
-      this._view.showError("Minimal password 8 karakter nihh");
+      this._view.showError('Minimal password 8 karakter nihh');
       return;
     }
 
+    const { error, loginResult } = await login({ email, password });
     try {
-      const { error, loginResult } = await login({ email, password });
+      console.log('login result', loginResult);
 
       if (error) {
-        this._view.showError("Email atau password salah");
+        this._view.showError('Email atau password salah');
         return;
       }
 
-      localStorage.setItem("token", loginResult.token);
+      localStorage.setItem('token', loginResult.user.token);
       window.dispatchEvent(
-        new CustomEvent("auth-change", {
+        new CustomEvent('auth-change', {
           detail: { isLoggedIn: true },
-        })
+        }),
       );
-      window.location.hash = "#/";
+      alert(loginResult.message);
     } catch (error) {
-      this._view.showError(error.message);
+      this._view.showError(loginResult.message);
     }
   }
 }

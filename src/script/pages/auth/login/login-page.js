@@ -1,10 +1,15 @@
-export default class LoginPage{
-    constructor(){
+import LoginPresenter from './login-presenter';
 
-    }
+export default class LoginPage {
+  constructor() {
+    // this._showError = this.showError.bind(this);
+    this.presenter = new LoginPresenter({
+      view: this,
+    });
+  }
 
-    async render(){
-        return `
+  async render() {
+    return `
         <section class="form-page">
             <form id="login-form" class="form-card">
                 <div id="loginError" class="error-message" style="display:none"></div>
@@ -20,26 +25,26 @@ export default class LoginPage{
             </form>
         </section>
         `;
-    }
+  }
 
-    showError(message) {
-    const errorElement = document.getElementById("loginError");
+  showError(message) {
+    const errorElement = document.getElementById('loginError');
     if (errorElement) {
       errorElement.textContent = message;
-      errorElement.style.display = "block";
+      errorElement.style.display = 'block';
       setTimeout(() => {
-        errorElement.style.display = "none";
+        errorElement.style.display = 'none';
       }, 5000);
     }
   }
   async afterRender() {
-    const navListMain = document.getElementById("navlist-main");
-    const navList = document.getElementById("navlist");
+    const navListMain = document.getElementById('navlist-main');
+    const navList = document.getElementById('navlist');
 
-    navListMain.innerHTML = "";
-    navList.innerHTML = headerNotLogin();
-    const form = document.getElementById("login-form");
-    form.addEventListener("submit", async (e) => {
+    // navListMain.innerHTML = '';
+    // navList.innerHTML = headerNotLogin();
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;

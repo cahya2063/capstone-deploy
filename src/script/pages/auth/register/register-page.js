@@ -1,9 +1,11 @@
+import RegisterPresenter from './register-presenter';
+
 export default class RegisterPage {
   constructor() {
-    // this._showError = this.showError.bind(this);
-    // this.presenter = new RegisterPresenter({
-    //   showError: this._showError,
-    // });
+    this._showError = this.showError.bind(this);
+    this.presenter = new RegisterPresenter({
+      showError: this._showError,
+    });
   }
 
   async render() {
@@ -12,8 +14,8 @@ export default class RegisterPage {
       <form id="register-form" class="form-card">
         <div id="errorMessage" class="error-message" style="display:none"></div>
           <h1>Register</h1>
-          <label for="name">Nama</label>
-          <input id="name" name="name" type="text" placeholder="John Doe" required />
+          <label for="username">Nama</label>
+          <input id="name" name="username" type="text" placeholder="John Doe" required />
 
           <label for="email">Email</label>
           <input id="email" name="email" type="email" placeholder="you@example.com" required />
@@ -21,7 +23,7 @@ export default class RegisterPage {
           <label for="password">Password</label>
           <input id="password" name="password" type="password" placeholder="********" required />
           
-          <button type="submit">Register</button>
+          <button type="submit" class="btn">Register</button>
           <p>Sudah punya akun? <a href="#/login">Login</a></p>
         </form>
       </section>
@@ -29,19 +31,19 @@ export default class RegisterPage {
   }
 
   showError(message) {
-    const errorElement = document.getElementById("errorMessage");
+    const errorElement = document.getElementById('errorMessage');
     errorElement.textContent = message;
-    errorElement.style.display = "block";
+    errorElement.style.display = 'block';
     setTimeout(() => {
-      errorElement.style.display = "none";
+      errorElement.style.display = 'none';
     }, 5000);
   }
   async afterRender() {
-    const form = document.getElementById("registerForm");
-    form.addEventListener("submit", (event) => {
+    const form = document.getElementById('register-form');
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       const data = {
-        name: event.target.name.value,
+        username: event.target.username.value,
         email: event.target.email.value,
         password: event.target.password.value,
       };
