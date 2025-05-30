@@ -10,20 +10,30 @@ export default class LoginPage {
 
   async render() {
     return `
-        <section class="form-page">
-            <form id="login-form" class="form-card">
-                <div id="loginError" class="error-message" style="display:none"></div>
-                <h1>Login</h1>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="text" placeholder="you@example.com" required />
+            <div class="container-login">
+              <div class="left-side">
+                  <div class="content">
 
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" placeholder="********" required />
+                      <p class="title-login">
+                          Login Page
+                      </p>
+                      <p>
+                          mohon masukkan email dan password
+                      </p>
 
-                <button type="submit" class="btn">Login</button>
-                <p>Belum punya akun? <a href="#/register">Buat akun</a></p>
-            </form>
-        </section>
+                      <form action="" id="login-form">
+                          <div id="loginError" class="error-message" style="display:none"></div>
+                          <input id="email" name="email" class="input-login" type="text" placeholder="masukkan emailmu.." required />
+                          <input id="password" name="password" class="input-login" type="password" placeholder="masukkan passwormu.." required />
+                          <button type="submit">Login</button>
+                      </form>
+                      <p>belum punya akun? <a href="#/register">daftar</a></p>
+                  </div>
+              </div>
+              <div class="right-side">
+                  <div class="content"></div>
+              </div>
+          </div>
         `;
   }
 

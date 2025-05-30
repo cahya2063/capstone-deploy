@@ -40,7 +40,7 @@ export default class LandingPage {
                     </svg>
                     </div>
                     <div class="InputContainer">
-                    <input placeholder="Ketik disini..." />
+                    <input placeholder="Ketik disini..." class="input-container"/>
                     </div>
                 </div>
                 </div>

@@ -10,23 +10,31 @@ export default class RegisterPage {
 
   async render() {
     return `
-      <section class="form-page">
-      <form id="register-form" class="form-card">
-        <div id="errorMessage" class="error-message" style="display:none"></div>
-          <h1>Register</h1>
-          <label for="username">Nama</label>
-          <input id="name" name="username" type="text" placeholder="John Doe" required />
+        <div class="container-login">
+          <div class="left-side">
+              <div class="content">
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="********" required />
-          
-          <button type="submit" class="btn">Register</button>
-          <p>Sudah punya akun? <a href="#/login">Login</a></p>
-        </form>
-      </section>
+                  <p class="title-register">
+                      Register Page
+                  </p>
+                  <p>
+                      mohon masukkan detail anda
+                  </p>
+
+                  <form action="" id="register-form">
+                      <div id="loginError" class="error-message" style="display:none"></div>
+                      <input id="name" name="username" class="input-register" type="text" placeholder="daftarkan nama mu.." required />
+                      <input id="email" name="email" class="input-register" type="email" placeholder="daftarkan email mu.." required />
+                      <input id="password" name="password" class="input-register" type="password" placeholder="masukkan password" required />
+                      <button type="submit">Login</button>
+                  </form>
+                  <p>sudah punya akun? <a href="#/login">login</a></p>
+              </div>
+          </div>
+          <div class="right-side">
+              <div class="content"></div>
+          </div>
+      </div>
     `;
   }
 
