@@ -1,4 +1,4 @@
-import MapStory from "../../utils/map";
+import MapStory from '../../utils/map';
 export default class LandingPage {
   constructor() {
     this._map = null;
@@ -40,7 +40,7 @@ export default class LandingPage {
                     </svg>
                     </div>
                     <div class="InputContainer">
-                    <input placeholder="Ketik disini..." />
+                    <input placeholder="Ketik disini..." class="input-container"/>
                     </div>
                 </div>
                 </div>
@@ -214,20 +214,20 @@ export default class LandingPage {
   }
 
   initialitationMap() {
-    this._mapStory = new MapStory("map");
+    this._mapStory = new MapStory('map');
     this._map = this._mapStory.getMap();
     this._marker = [];
     this._mapStory.createMultipleMarkers([
-      { lat: -7.6079, lon: 110.2038, content: "Candi Borobudur" },
-      { lat: -7.752, lon: 110.491, content: "Candi Prambanan" },
-      { lat: -7.8516, lon: 110.3302, content: "Candi Ratu Boko" },
-      { lat: -7.6443, lon: 110.4394, content: "Candi Pawon" },
-      { lat: -7.6153, lon: 110.4213, content: "Candi Mendut" },
-      { lat: -7.1646, lon: 112.5766, content: "Candi Jawi" },
-      { lat: -7.6481, lon: 112.8854, content: "Candi Singosari" },
-      { lat: -7.5516, lon: 112.2317, content: "Candi Tikus" },
-      { lat: -7.5454, lon: 112.2389, content: "Candi Bajang Ratu" },
-      { lat: -7.6806, lon: 110.672, content: "Candi Sambisari" },
+      { lat: -7.6079, lon: 110.2038, content: 'Candi Borobudur' },
+      { lat: -7.752, lon: 110.491, content: 'Candi Prambanan' },
+      { lat: -7.8516, lon: 110.3302, content: 'Candi Ratu Boko' },
+      { lat: -7.6443, lon: 110.4394, content: 'Candi Pawon' },
+      { lat: -7.6153, lon: 110.4213, content: 'Candi Mendut' },
+      { lat: -7.1646, lon: 112.5766, content: 'Candi Jawi' },
+      { lat: -7.6481, lon: 112.8854, content: 'Candi Singosari' },
+      { lat: -7.5516, lon: 112.2317, content: 'Candi Tikus' },
+      { lat: -7.5454, lon: 112.2389, content: 'Candi Bajang Ratu' },
+      { lat: -7.6806, lon: 110.672, content: 'Candi Sambisari' },
     ]);
   }
 }

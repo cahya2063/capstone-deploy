@@ -1,18 +1,76 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.8;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform:  rotateX(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform:  rotateX(0);
+  }
+  to {
+    opacity: 0.8;
+    transform: rotateX(-10deg);
+  }
+}
+.btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #1e78e0;
 }
 
 /* Header */
 header {
+  position: fixed;
+    top: 0px;
+  left: 0;
+  right: 0;
   background-color: white;
   color: white;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
   width: 90%;
   margin-inline: auto;
   box-shadow: 0px 5px 30px rgba(34, 35, 58, 0.5);
+  z-index: 9999;
 }
 
 .main-header {
@@ -46,7 +104,7 @@ header {
   transform: translateX(-100%);
   transition: transform 350ms;
 
-  z-index: 9999;
+  
 }
 
 .navigation-drawer.open {
@@ -83,6 +141,9 @@ header {
 
   color: #333;
   text-decoration: none;
+}
+.main-content {
+  padding-top: 100px; /* Sesuaikan tinggi header-mu */
 }
 
 /* gambar slider */
@@ -121,11 +182,7 @@ header {
 .Card-search {
   padding: 1px;
   border-radius: 10px;
-  background: linear-gradient(
-    -67deg,
-    rgba(#c8d8e7, 0.7),
-    rgba(255, 255, 255, 0.8)
-  );
+  background: linear-gradient(-67deg, rgba(#c8d8e7, 0.7), rgba(255, 255, 255, 0.8));
   overflow: hidden;
   box-shadow:
     -2px -2px 6px rgba(#fff, 0.6),
@@ -163,7 +220,7 @@ header {
 }
 
 label {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: block;
   color: #3c4b66;
   margin-bottom: 12px;
@@ -176,12 +233,12 @@ label {
   width: 100%;
 }
 
-input {
+.input-container {
   background-color: #e3edf7;
   padding: 16px 32px;
   border: none;
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #a9b8c9;
   -webkit-appearance: none;
@@ -212,7 +269,7 @@ input {
     left: 0;
     top: 0;
     display: block;
-    content: "";
+    content: '';
     pointer-events: none;
     width: 100%;
     height: 100%;
@@ -308,7 +365,7 @@ input {
   height: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-image: url("../public/images/slider/image-slider1.png");
+  background-image: url('../public/images/slider/image-slider1.png');
   background-position: bottom center;
   background-size: cover;
 }
@@ -317,7 +374,7 @@ input {
   height: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-image: url("../public/images/slider/image-slider2.png");
+  background-image: url('../public/images/slider/image-slider2.png');
   background-position: bottom center;
   background-size: cover;
 }
@@ -326,7 +383,7 @@ input {
   height: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-image: url("../public/images/slider/image-slider3.png");
+  background-image: url('../public/images/slider/image-slider3.png');
   background-position: bottom center;
   background-size: cover;
 }
@@ -335,7 +392,7 @@ input {
   height: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-image: url("../public/images/slider/image-slider4.png");
+  background-image: url('../public/images/slider/image-slider4.png');
   background-position: bottom center;
   background-size: cover;
 }
@@ -453,8 +510,8 @@ input {
 }
 
 /* FOOTER */
-footer{
-    border-color: 2px solid #000;
+footer {
+  border-color: 2px solid #000;
 }
 
 /* SCAN */
@@ -550,6 +607,93 @@ footer{
   background-color: #333;
 }
 
+/* LOGIN & Register*/
+.container-login{
+    display: flex;
+    margin-inline: auto;
+    width: 70%;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-block: 70px;
+}
+.left-side, .right-side {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left-side .content{
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.right-side .content{
+    width: 95%;
+    height: 95%;
+     background-image: url('../public/images/borobudur.jpg'); /*Path ke gambarmu */
+    background-size: cover; /* Biar gambar nutup seluruh area */
+    background-position: center; /* Tengahin gambarnya */
+    background-repeat: no-repeat; /* Biar nggak ngulang */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title-login, .title-register{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.error-message {
+  color: #ff4d4f;
+  background-color: #ffecec;
+  border: 1px solid #ffcccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  width: 80%;
+  margin-inline: auto;
+}
+.input-login, .input-register{
+    width: 80%;
+    height: 50px;
+    margin-top: 30px;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    padding-left: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.input-login, .input-register::placeholder{
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+input[type="password"]{
+    margin-top: 35px;
+}
+button[type="submit"]{
+    display: block;
+    margin-top: 30px;
+    margin-inline: auto;
+    width: 71%;
+    height: 50px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    background-color: orangered;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+
+/* =========================== */
 
 /* responsive */
 
@@ -589,7 +733,7 @@ footer{
 
   /* FOOTER */
 
-  footer .container{
+  footer .container {
     background-color: rgb(255, 255, 255);
     max-width: 90%;
     margin-inline: auto;
@@ -597,15 +741,13 @@ footer{
     border-radius: 15px;
     border: 3px solid #000;
   }
-  .footer{
+  .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     gap: 20px;
   }
-
-  
 }
 
 @media (max-width: 991px) {
@@ -657,13 +799,18 @@ footer{
   #map {
     margin-inline: 10px;
   }
+  .right-side {
+    display: none;
+  }
+
+  .left-side {
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .card-wisata-2 {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
-
-  
 }
 @media (max-width: 471px) {
   .history-lens {
