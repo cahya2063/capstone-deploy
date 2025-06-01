@@ -1,3 +1,4 @@
+
 import routes from '../routes/routes';
 import { getActiveRoute } from '../routes/url-parser';
 import { headerLandingPage, headerLogin, headerNotLogin, headerRegister } from '../template';
@@ -69,6 +70,7 @@ class App {
     } else {
       headerHTML = headerLandingPage(); // default
     }
+
 
     navList.innerHTML = headerHTML;
   }

@@ -514,6 +514,99 @@ footer {
   border-color: 2px solid #000;
 }
 
+/* SCAN */
+.scan-section {
+  margin-block: 60px;
+  padding-inline: 20px;
+  font-family: sans-serif;
+}
+
+.scan-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.scan-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0px 5px 30px rgba(34, 35, 58, 0.3);
+  max-width: 500px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.camera-control {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.camera-btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.camera-preview {
+  display: none;
+  width: 100%;
+  height: 220px;
+  background: #000;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.photo-result {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+#take-photo-btn {
+  margin-top: 1rem;
+}
+
+.upload-label {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.upload-input {
+  display: none;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
 /* LOGIN & Register*/
 .container-login{
     display: flex;
