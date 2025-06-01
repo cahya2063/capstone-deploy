@@ -87,6 +87,7 @@ class App {
         this.#content.innerHTML = await page.render();
         await page.afterRender?.();
       });
+
     }
   }
 }

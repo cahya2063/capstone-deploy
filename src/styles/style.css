@@ -6,7 +6,41 @@ body {
 * {
     box-sizing: border-box;
 }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
 
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.8;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform:  rotateX(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform:  rotateX(0);
+  }
+  to {
+    opacity: 0.8;
+    transform: rotateX(-10deg);
+  }
+}
 .btn {
   margin-top: 25px;
   width: 100%;
@@ -25,13 +59,18 @@ body {
 
 /* Header */
 header {
+  position: fixed;
+    top: 0px;
+  left: 0;
+  right: 0;
   background-color: white;
   color: white;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
   width: 90%;
   margin-inline: auto;
   box-shadow: 0px 5px 30px rgba(34, 35, 58, 0.5);
+  z-index: 9999;
 }
 
 .main-header {
@@ -65,7 +104,7 @@ header {
   transform: translateX(-100%);
   transition: transform 350ms;
 
-  z-index: 9999;
+  
 }
 
 .navigation-drawer.open {
@@ -102,6 +141,9 @@ header {
 
   color: #333;
   text-decoration: none;
+}
+.main-content {
+  padding-top: 100px; /* Sesuaikan tinggi header-mu */
 }
 
 /* gambar slider */
@@ -541,7 +583,7 @@ footer {
 input[type="password"]{
     margin-top: 35px;
 }
-button{
+button[type="submit"]{
     display: block;
     margin-top: 30px;
     margin-inline: auto;
@@ -663,6 +705,13 @@ a{
   }
   #map {
     margin-inline: 10px;
+  }
+  .right-side {
+    display: none;
+  }
+
+  .left-side {
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
