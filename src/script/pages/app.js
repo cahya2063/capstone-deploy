@@ -1,7 +1,12 @@
-
 import routes from '../routes/routes';
 import { getActiveRoute } from '../routes/url-parser';
-import { headerLandingPage, headerLogin, headerNotLogin, headerRegister } from '../template';
+import {
+  headerDashboard,
+  headerLandingPage,
+  headerLogin,
+  headerNotLogin,
+  headerRegister,
+} from '../template';
 
 class App {
   #content = null;
@@ -52,6 +57,7 @@ class App {
   }
 
   #setupNavigationList() {
+    const isLoggedIn = !!localStorage.getItem('token');
     const navListMain = document.getElementById('navlist-main');
     const navList = document.getElementById('navlist');
 
@@ -61,18 +67,39 @@ class App {
 
     // Tentukan header berdasarkan halaman
     let headerHTML = '';
-    if (url === '/' || url === '') {
-      headerHTML = headerLandingPage();
-    } else if (url === '/login') {
-      headerHTML = headerLogin();
-    } else if (url === '/register') {
-      headerHTML = headerRegister();
+
+    if (isLoggedIn) {
+      headerHTML = headerDashboard();
     } else {
-      headerHTML = headerLandingPage(); // default
+      if (url === '/' || url === '') {
+        headerHTML = headerLandingPage();
+      } else if (url === '/login') {
+        headerHTML = headerLogin();
+      } else if (url === '/register') {
+        headerHTML = headerRegister();
+      } else {
+        headerHTML = headerLandingPage(); // default
+      }
     }
 
-
     navList.innerHTML = headerHTML;
+    // navList.innerHTML = isLoggedIn ? headerDashboard() : headerLandingPage();
+
+    if (isLoggedIn) {
+      const logoutButton = document.getElementById('logout-button');
+      logoutButton?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.logout();
+      });
+    }
+  }
+
+  logout() {
+    if (confirm('apakah anda ingin logout?')) {
+      localStorage.removeItem('token');
+      window.dispatchEvent(new Event('auth-change'));
+      window.location.hash = '#/';
+    }
   }
 
   async renderPage() {
@@ -80,6 +107,13 @@ class App {
     const route = routes[url];
     const page = route ? route.page : routes['/404'].page;
     const isAuth = route ? route.auth : false;
+    const token = localStorage.getItem('token')
+
+    if(isAuth && !token){
+      window.location.hash = '#/login'
+      return
+    }
+
 
     if (!document.startViewTransition) {
       this.#content.innerHTML = await page.render();
@@ -89,7 +123,6 @@ class App {
         this.#content.innerHTML = await page.render();
         await page.afterRender?.();
       });
-
     }
   }
 }

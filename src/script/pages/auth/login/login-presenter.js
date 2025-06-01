@@ -26,7 +26,7 @@ class LoginPresenter {
           detail: { isLoggedIn: true },
         }),
       );
-      alert(loginResult.message);
+      window.location.hash = '#/scan';
     } catch (error) {
       this._view.showError(loginResult.message);
     }

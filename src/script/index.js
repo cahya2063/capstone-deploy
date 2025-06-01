@@ -5,7 +5,7 @@ import image3 from '../public/images/slider/image-slider3.png';
 import image4 from '../public/images/slider/image-slider4.png';
 import image5 from '../public/images/slider/image-slider5.png';
 import profileCahya from '../public/images/profile/cahya.jpg';
-import borobudur from '../public/images/borobudur.jpg'
+import borobudur from '../public/images/borobudur.jpg';
 import App from './pages/app';
 
 document.addEventListener('DOMContentLoaded', async () => {

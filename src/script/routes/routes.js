@@ -6,7 +6,7 @@ import LandingPage from '../pages/landing/landing-page';
 const routes = {
   '/': {
     page: new LandingPage(),
-    auth: true,
+    auth: false,
   },
   '/scan': {
     page: new ScanPage(),
@@ -14,11 +14,11 @@ const routes = {
   },
   '/login': {
     page: new LoginPage(),
-    auth: true,
+    auth: false,
   },
   '/register': {
     page: new RegisterPage(),
-    auth: true,
+    auth: false,
   },
 };
 

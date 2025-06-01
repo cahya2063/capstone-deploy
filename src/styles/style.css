@@ -4,7 +4,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -27,14 +27,14 @@ body {
   }
   to {
     opacity: 1;
-    transform:  rotateX(0);
+    transform: rotateX(0);
   }
 }
 
 @keyframes fade-out {
   from {
     opacity: 1;
-    transform:  rotateX(0);
+    transform: rotateX(0);
   }
   to {
     opacity: 0.8;
@@ -60,7 +60,7 @@ body {
 /* Header */
 header {
   position: fixed;
-    top: 0px;
+  top: 0px;
   left: 0;
   right: 0;
   background-color: white;
@@ -103,8 +103,6 @@ header {
   box-shadow: 0 0 4px 2px #00000033;
   transform: translateX(-100%);
   transition: transform 350ms;
-
-  
 }
 
 .navigation-drawer.open {
@@ -608,44 +606,46 @@ footer {
 }
 
 /* LOGIN & Register*/
-.container-login{
-    display: flex;
-    margin-inline: auto;
-    width: 70%;
-    height: 600px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-block: 70px;
+.container-login {
+  display: flex;
+  margin-inline: auto;
+  width: 70%;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-block: 70px;
 }
-.left-side, .right-side {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.left-side,
+.right-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.left-side .content{
-    width: 100%;
-    margin-inline: auto;
-    text-align: center;
-}
-
-.right-side .content{
-    width: 95%;
-    height: 95%;
-     background-image: url('../public/images/borobudur.jpg'); /*Path ke gambarmu */
-    background-size: cover; /* Biar gambar nutup seluruh area */
-    background-position: center; /* Tengahin gambarnya */
-    background-repeat: no-repeat; /* Biar nggak ngulang */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.left-side .content {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.title-login, .title-register{
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 50px;
+.right-side .content {
+  width: 95%;
+  height: 95%;
+  background-image: url('../public/images/borobudur.jpg'); /*Path ke gambarmu */
+  background-size: cover; /* Biar gambar nutup seluruh area */
+  background-position: center; /* Tengahin gambarnya */
+  background-repeat: no-repeat; /* Biar nggak ngulang */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title-login,
+.title-register {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 .error-message {
   color: #ff4d4f;
@@ -658,39 +658,41 @@ footer {
   width: 80%;
   margin-inline: auto;
 }
-.input-login, .input-register{
-    width: 80%;
-    height: 50px;
-    margin-top: 30px;
-    border: 2px solid orangered;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-size: 15px;
-    padding-left: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.input-login,
+.input-register {
+  width: 80%;
+  height: 50px;
+  margin-top: 30px;
+  border: 2px solid orangered;
+  border-radius: 10px;
+  font-family: 'Poppins';
+  font-size: 15px;
+  padding-left: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.input-login, .input-register::placeholder{
-    font-family: 'Poppins';
-    font-size: 15px;
+.input-login,
+.input-register::placeholder {
+  font-family: 'Poppins';
+  font-size: 15px;
 }
-input[type="password"]{
-    margin-top: 35px;
+input[type='password'] {
+  margin-top: 35px;
 }
-button[type="submit"]{
-    display: block;
-    margin-top: 30px;
-    margin-inline: auto;
-    width: 71%;
-    height: 50px;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-size: 20px;
-    font-weight: 600;
-    background-color: orangered;
-    color: white;
+button[type='submit'] {
+  display: block;
+  margin-top: 30px;
+  margin-inline: auto;
+  width: 71%;
+  height: 50px;
+  border-radius: 10px;
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 600;
+  background-color: orangered;
+  color: white;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 /* =========================== */
