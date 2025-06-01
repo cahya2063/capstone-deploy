@@ -1,6 +1,6 @@
 import routes from "../routes/routes";
 import { getActiveRoute } from "../routes/url-parser";
-import { headerNotLogin } from "../template";
+import { headerDashboard } from "../template";
 
 class App {
   #content = null;
@@ -51,7 +51,7 @@ class App {
     const navList = document.getElementById("navlist");
 
     navListMain.remove();
-    navList.innerHTML = headerNotLogin();
+    navList.innerHTML = headerDashboard();
   }
 
   async renderPage() {

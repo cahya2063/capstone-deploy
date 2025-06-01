@@ -139,7 +139,7 @@ export default class LandingPage {
 
                 <div class="profile-card">
                     <div class="profile-image">
-                        <img src="images/profile/cahya.jpg" alt="Profile Photo" />
+                        <img src="images/profile/rois.jpg" alt="Profile Photo" />
                     </div>
                     <div class="profile-info">
                         <h2 class="name">Muhamad Rois</h2>
