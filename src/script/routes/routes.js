@@ -2,6 +2,7 @@ import ScanPage from '../pages/scan/scan-page';
 import LoginPage from '../pages/auth/login/login-page';
 import RegisterPage from '../pages/auth/register/register-page';
 import LandingPage from '../pages/landing/landing-page';
+import WisataPage from '../pages/wisata/wisata-page';
 
 const routes = {
   '/': {
@@ -10,6 +11,10 @@ const routes = {
   },
   '/scan': {
     page: new ScanPage(),
+    auth: true,
+  },
+  '/wisata': {
+    page: new WisataPage(),
     auth: true,
   },
   '/login': {
