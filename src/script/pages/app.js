@@ -107,13 +107,12 @@ class App {
     const route = routes[url];
     const page = route ? route.page : routes['/404'].page;
     const isAuth = route ? route.auth : false;
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
 
-    if(isAuth && !token){
-      window.location.hash = '#/login'
-      return
+    if (isAuth && !token) {
+      window.location.hash = '#/login';
+      return;
     }
-
 
     if (!document.startViewTransition) {
       this.#content.innerHTML = await page.render();
