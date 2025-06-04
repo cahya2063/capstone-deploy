@@ -78,6 +78,11 @@ export default class LandingPage {
         </div>
     </div>
 
+    <div class="peta">
+        <h2>Lokasi candi</h2>
+        <div id="map" style="height: 400px; margin-top: 60px;"></div>
+    </div>
+
     <div class="profile-card">
         <div class="wrap">
             <div class="content-1">
