@@ -4,7 +4,7 @@ import profileRama from '../public/images/profile/rama.jpeg';
 import profileRois from '../public/images/profile/rois.jpg';
 import profileSalsa from '../public/images/profile/salsa.jpeg';
 import borobudur from '../public/images/borobudur.jpg';
-import cameraGif from '../public/images/slider/scan.gif'
+import cameraGif from '../public/images/slider/scan.gif';
 import '../styles/style.css';
 import App from './pages/app';
 

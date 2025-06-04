@@ -78,6 +78,11 @@ export default class LandingPage {
         </div>
     </div>
 
+    <div class="peta">
+        <h2>Lokasi candi</h2>
+        <div id="map" style="height: 400px; margin-top: 60px;"></div>
+    </div>
+
     <div class="profile-card">
         <div class="wrap">
             <div class="content-1">
@@ -141,7 +146,7 @@ export default class LandingPage {
     });
 
     this.updateContent('desc'); // Set default
-    this.hover()
+    this.hover();
     this.initialitationMap();
   }
 
@@ -160,40 +165,39 @@ export default class LandingPage {
     this._descText.classList.add('fade-out');
     this._imgDescription.classList.add('fade-out');
 
-    setTimeout(()=>{
-        this._descText.textContent = data.text;
-        this._imgDescription.src = data.image;
-        this._descText.classList.remove('fade-out');
-        this._imgDescription.classList.remove('fade-out');
-
-    }, 300)
+    setTimeout(() => {
+      this._descText.textContent = data.text;
+      this._imgDescription.src = data.image;
+      this._descText.classList.remove('fade-out');
+      this._imgDescription.classList.remove('fade-out');
+    }, 300);
 
     this.resetActiveButtons();
     this._switchButtons[key].classList.add('active');
   }
 
-  hover(){
-    let items1 = document.querySelectorAll('.content-1')
-    items1.forEach(item =>{
-    item.addEventListener('mousemove', (e)=>{
+  hover() {
+    let items1 = document.querySelectorAll('.content-1');
+    items1.forEach((item) => {
+      item.addEventListener('mousemove', (e) => {
         // dapatkan posisi panjang pointer pixel
-        let positionPx = e.x - item.getBoundingClientRect().left
+        let positionPx = e.x - item.getBoundingClientRect().left;
         // conversi ke %
-        let PositionX = (positionPx / item.offsetWidth)*100
+        let PositionX = (positionPx / item.offsetWidth) * 100;
         // dapatkan posisi tinggi pointer
-        let positionPy = e.y - item.getBoundingClientRect().top
+        let positionPy = e.y - item.getBoundingClientRect().top;
         // conversi ke %
-        let PositionY = (positionPy / item.offsetHeight)*100
-        item.style.setProperty('--rX', (0.5)*(50 - PositionY)+ 'deg')
-        item.style.setProperty('--rY', (0.5)*(50 - PositionX)+ 'deg')
-    })
-    item.addEventListener('mouseout', ()=>{
-        item.style.setProperty('--rX', '0deg')
-        item.style.setProperty('--rY', '0deg')
-    })
-    })
+        let PositionY = (positionPy / item.offsetHeight) * 100;
+        item.style.setProperty('--rX', 0.5 * (50 - PositionY) + 'deg');
+        item.style.setProperty('--rY', 0.5 * (50 - PositionX) + 'deg');
+      });
+      item.addEventListener('mouseout', () => {
+        item.style.setProperty('--rX', '0deg');
+        item.style.setProperty('--rY', '0deg');
+      });
+    });
   }
-  
+
   initialitationMap() {
     this._mapStory = new MapStory('map');
     this._map = this._mapStory.getMap();

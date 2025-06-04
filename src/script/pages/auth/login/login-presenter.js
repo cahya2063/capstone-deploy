@@ -26,7 +26,9 @@ class LoginPresenter {
           detail: { isLoggedIn: true },
         }),
       );
-      window.location.hash = '#/';
+
+      window.location.hash = '#/dashboard';
+
     } catch (error) {
       this._view.showError(loginResult.message);
     }
