@@ -109,10 +109,10 @@ class App {
     const isAuth = route ? route.auth : false;
     const token = localStorage.getItem('token');
 
-      if (token && url === '/') {
-        window.location.hash = '#/dashboard';
-        return;
-      }
+    if (token && url === '/') {
+      window.location.hash = '#/dashboard';
+      return;
+    }
 
     if (isAuth && !token) {
       window.location.hash = '#/login';
