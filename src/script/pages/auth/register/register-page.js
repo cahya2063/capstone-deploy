@@ -26,7 +26,7 @@ export default class RegisterPage {
                       <input id="name" name="username" class="input-register" type="text" placeholder="daftarkan nama mu.." required />
                       <input id="email" name="email" class="input-register" type="email" placeholder="daftarkan email mu.." required />
                       <input id="password" name="password" class="input-register" type="password" placeholder="masukkan password" required />
-                      <button type="submit">Login</button>
+                      <button type="submit">Register</button>
                   </form>
                   <p>sudah punya akun? <a href="#/login">login</a></p>
               </div>

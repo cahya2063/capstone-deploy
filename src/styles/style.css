@@ -492,9 +492,9 @@ header {
   margin-inline: auto;
   margin-block: 40px;
   border: 1px solid #50bfff;
-    border-radius: 1rem;
-    background: #ffffff;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
 }
 
 .chart-item-1 {
@@ -506,7 +506,7 @@ header {
   width: 300px !important; /* Lebar chart */
   height: 300px !important; /* Tinggi chart */
 }
-.dash-card{
+.dash-card {
   display: grid;
   margin-inline: auto;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -516,10 +516,10 @@ header {
   gap: 20px;
   margin-top: 40px;
 }
-.dash-item{
+.dash-item {
   background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  width: 100%;  
+  width: 100%;
   height: 60px;
   /* border-radius: 5px; */
   border-left: 6px solid orangered;
@@ -786,6 +786,13 @@ footer .container {
   #map {
     margin-inline: 10px;
   }
+  .right-side {
+    display: none;
+  }
+
+  .left-side {
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .footer {
@@ -795,18 +802,17 @@ footer .container {
   .card-wisata-2 {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
-  .chart-item-1{
+  .chart-item-1 {
     width: 95% !important;
   }
-  .chart-item-2{
+  .chart-item-2 {
     width: 95% !important;
   }
 }
 @media (max-width: 471px) {
   footer .container {
     width: 100%;
-    /* padding: 0px; */
-    /* flex-grow: 1; */
+
   }
   .switch-image-container {
     width: auto;
