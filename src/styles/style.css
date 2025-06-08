@@ -543,7 +543,7 @@ header {
 
 .wisata-card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   padding: 0 2rem;
   max-width: 1000px;
@@ -579,6 +579,34 @@ header {
   color: #666;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 600px) {
+  .wisata-section {
+    padding: 1rem;
+  }
+
+  .wisata-title {
+    font-size: 20px;
+  }
+
+  .wisata-card-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .wisata-img {
+    height: 120px;
+  }
+
+  .wisata-name {
+    font-size: 1rem;
+  }
+
+  .wisata-location {
+    font-size: 0.875rem;
+  }
+}
+
 
 /* LOGIN & Register*/
 .container-login {
