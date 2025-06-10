@@ -1,17 +1,9 @@
-const mysql = require('mysql');
+// supabaseClient.js
+const { createClient } = require('@supabase/supabase-js');
 
-const db = mysql.createConnection({
-  host: 'sql12.freesqldatabase.com',
-  user: 'sql12783293',
-  password: 'RbQJQr4u7b',
-  database: 'sql12783293',
-});
+const supabaseUrl = 'https://flhgnivsvuixjyprsygt.supabase.co'; // Ganti dengan URL proyek kamu
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsaGduaXZzdnVpeGp5cHJzeWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NDMzNjUsImV4cCI6MjA2NTExOTM2NX0.PNmZKr1V8F9INdfkaUV0a02fCrpLaScQzSHRvXhwQ14'; // API Key Supabase kamu
 
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('Database connected');
-});
+const db = createClient(supabaseUrl, supabaseKey);
 
 module.exports = db;

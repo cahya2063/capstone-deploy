@@ -16,24 +16,40 @@ class WisataPage {
 
   _generateCards() {
     const data = [
-      { name: "Kawah Ijen", location: "Kab. Banyuwangi", img: "images/wisata/kawah-ijen.jpg" },
-      { name: "Pulau Merah", location: "Kab. Banyuwangi", img: "images/wisata/pulau-merah.jpg" },
-      { name: "Dataran Tinggi Dieng", location: "Kab. Wonosobo", img: "images/wisata/dataran-tinggi-dieng.jpg" },
-      { name: "Candi Borobudur", location: "Kab. Magelang", img: "images/wisata/borobudur.jpg" },
-      { name: "Candi Prambanan", location: "Kab. Sleman", img: "images/wisata/prambanan.jpg" },
-      { name: "Candi Bajang Ratu", location: "Kab. Mojokerto", img: "images/wisata/bajang-ratu.jpg" },
-      { name: "Gunung Merbabu", location: "Kab. Magelang", img: "images/wisata/merbabu.jpg" },
-      { name: "Jalan Malioboro", location: "Kab. Yogyakarta", img: "images/wisata/malioboro.jpg" },
-      { name: "Air Terjun Kembang Soka", location: "Kab. Yogyakarta", img: "images/wisata/kembang-soka.jpg" },
+      { name: 'Kawah Ijen', location: 'Kab. Banyuwangi', img: 'images/wisata/kawah-ijen.jpg' },
+      { name: 'Pulau Merah', location: 'Kab. Banyuwangi', img: 'images/wisata/pulau-merah.jpg' },
+      {
+        name: 'Dataran Tinggi Dieng',
+        location: 'Kab. Wonosobo',
+        img: 'images/wisata/dataran-tinggi-dieng.jpg',
+      },
+      { name: 'Candi Borobudur', location: 'Kab. Magelang', img: 'images/wisata/borobudur.jpg' },
+      { name: 'Candi Prambanan', location: 'Kab. Sleman', img: 'images/wisata/prambanan.jpg' },
+      {
+        name: 'Candi Bajang Ratu',
+        location: 'Kab. Mojokerto',
+        img: 'images/wisata/bajang-ratu.jpg',
+      },
+      { name: 'Gunung Merbabu', location: 'Kab. Magelang', img: 'images/wisata/merbabu.jpg' },
+      { name: 'Jalan Malioboro', location: 'Kab. Yogyakarta', img: 'images/wisata/malioboro.jpg' },
+      {
+        name: 'Air Terjun Kembang Soka',
+        location: 'Kab. Yogyakarta',
+        img: 'images/wisata/kembang-soka.jpg',
+      },
     ];
 
-    return data.map(item => `
+    return data
+      .map(
+        (item) => `
       <div class="wisata-card">
         <img src="${item.img}" alt="${item.name}" class="wisata-img"/>
         <h3 class="wisata-name">${item.name}</h3>
         <p class="wisata-location">${item.location}</p>
       </div>
-    `).join('');
+    `,
+      )
+      .join('');
   }
 }
 

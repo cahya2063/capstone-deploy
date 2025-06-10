@@ -38,3 +38,31 @@ export async function register({ username, email, password }) {
   const responseJson = await response.json();
   return { ...responseJson, ok: response.ok };
 }
+
+export async function predict(imageFile) {
+  try {
+    const formData = new FormData();
+    formData.append('file', imageFile);
+
+    const response = await fetch('http://127.0.0.1:8000/api/predict', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.error) {
+      return {
+        status: 'failed',
+        message: 'gagal melakukan scanning',
+      };
+    } else {
+      return result;
+    }
+  } catch (error) {
+    return {
+      status: 'failed',
+      message: 'gagal mengirim gambar',
+    };
+  }
+}
