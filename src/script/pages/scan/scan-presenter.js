@@ -82,70 +82,66 @@ const ScanPresenter = {
 
   async _submit() {
     const imageSrc = this.photoResult.src;
-  if (!imageSrc || imageSrc === window.location.href) {
-    alert('Harap ambil atau unggah gambar terlebih dahulu.');
-    return;
-  }
-
-  const resultElement = document.getElementById('scan-result');
-  resultElement.textContent = 'Memproses gambar...';
-
-  try {
-    let imageFile;
-
-    if (imageSrc.startsWith('data:image')) {
-      // Kalau sumber gambar adalah base64 (dari kamera)
-      const res = await fetch(imageSrc);
-      const blob = await res.blob();
-      imageFile = new File([blob], 'camera-image.png', { type: 'image/png' });
-    } else {
-      // Kalau dari file upload
-      imageFile = this.uploadInput.files[0];
-    }
-
-    const result = await predict(imageFile);
-    console.log(result);
-    
-
-    if (result.status === 'failed') {
-      resultElement.textContent = 'Gagal mendeteksi gambar';
+    if (!imageSrc || imageSrc === window.location.href) {
+      alert('Harap ambil atau unggah gambar terlebih dahulu.');
       return;
     }
 
-    resultElement.innerHTML = `
+    const resultElement = document.getElementById('scan-result');
+    resultElement.textContent = 'Memproses gambar...';
+
+    try {
+      let imageFile;
+
+      if (imageSrc.startsWith('data:image')) {
+        // Kalau sumber gambar adalah base64 (dari kamera)
+        const res = await fetch(imageSrc);
+        const blob = await res.blob();
+        imageFile = new File([blob], 'camera-image.png', { type: 'image/png' });
+      } else {
+        // Kalau dari file upload
+        imageFile = this.uploadInput.files[0];
+      }
+
+      const result = await predict(imageFile);
+      console.log(result);
+
+      if (result.status === 'failed') {
+        resultElement.textContent = 'Gagal mendeteksi gambar';
+        return;
+      }
+
+      resultElement.innerHTML = `
       <strong>Hasil prediksi : ${result.label_output}</strong>
     `;
 
-    const descriptionElement = document.getElementById('scan-description');
-    descriptionElement.textContent = result.deskripsi;
-    descriptionElement.style.display = 'block';
-    
-   if (result.lokasi && result.lokasi !== '-') {
-      const buttonLink = document.createElement('a');
-      buttonLink.href = result.lokasi;
-      buttonLink.textContent = 'Kunjungi Lokasi';
-      buttonLink.className = 'btn-lokasi';
-      buttonLink.target = '_blank';
+      const descriptionElement = document.getElementById('scan-description');
+      descriptionElement.textContent = result.deskripsi;
+      descriptionElement.style.display = 'block';
 
-      descriptionElement.appendChild(document.createElement('br'));
-      descriptionElement.appendChild(buttonLink);
+      if (result.lokasi && result.lokasi !== '-') {
+        const buttonLink = document.createElement('a');
+        buttonLink.href = result.lokasi;
+        buttonLink.textContent = 'Kunjungi Lokasi';
+        buttonLink.className = 'btn-lokasi';
+        buttonLink.target = '_blank';
+
+        descriptionElement.appendChild(document.createElement('br'));
+        descriptionElement.appendChild(buttonLink);
+      }
+
+      // Simpan ke IndexedDB kalau perlu
+      if (result.confidence > 0.7) {
+        result.isSave = false;
+        result.id = `scan-${Date.now()}`;
+        await saveScan(result);
+      } else {
+        alert('scan tidak disimpan');
+      }
+    } catch (error) {
+      console.error(error);
+      resultElement.textContent = 'Terjadi kesalahan saat mengirim gambar: ' + error.message;
     }
-
-
-    // Simpan ke IndexedDB kalau perlu
-    if(result.confidence > 0.7){
-      result.isSave = false;
-      result.id = `scan-${Date.now()}`;
-      await saveScan(result);
-    }else{
-      alert('scan tidak disimpan')
-    }
-
-
-  } catch (error) {
-    console.error(error);
-    resultElement.textContent = 'Terjadi kesalahan saat mengirim gambar: ' + error.message;
-  }
   },
 };
 

@@ -25,7 +25,7 @@ export default class DashboardPage {
     this.displayScanData();
   }
 
-  async initChart(){
+  async initChart() {
     const ctx = document.getElementById('doughnutChart').getContext('2d');
 
     const doughnutChart = new Chart(ctx, {
@@ -79,15 +79,17 @@ export default class DashboardPage {
   }
 
   async displayScanData() {
-  const data = await getSaveScan();
-  const listContainer = document.getElementById('scanList');
+    const data = await getSaveScan();
+    const listContainer = document.getElementById('scanList');
 
-  if (!data.length) {
-    listContainer.innerHTML = '<li>Belum ada hasil scan yang tersimpan.</li>';
-    return;
-  }
+    if (!data.length) {
+      listContainer.innerHTML = '<li>Belum ada hasil scan yang tersimpan.</li>';
+      return;
+    }
 
-listContainer.innerHTML = data.map((item) => `
+    listContainer.innerHTML = data
+      .map(
+        (item) => `
   <li style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #ddd;">
     <div>
       <strong>Nama:</strong> ${item.label_output || 'Tidak ada nama'}
@@ -96,8 +98,8 @@ listContainer.innerHTML = data.map((item) => `
       💾
     </button>
   </li>
-`).join('');
-
-}
-
+`,
+      )
+      .join('');
+  }
 }

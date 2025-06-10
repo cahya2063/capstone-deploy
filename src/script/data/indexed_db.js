@@ -13,9 +13,7 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 });
 
 export const saveScan = async (scan) => {
-    
   try {
-    
     const db = await dbPromise;
     await db.put(OBJECT_STORE_NAME, scan);
     alert('hasil scan berhasil di simpan');
