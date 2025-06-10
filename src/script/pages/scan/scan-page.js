@@ -21,6 +21,8 @@ class ScanPage {
           <input type="file" id="upload-image" accept="image/*" class="upload-input" />
 
           <button id="submit-scan" class="submit-btn">Kirim</button>
+          <div id="scan-result" class="scan-result" style="margin-top: 1rem;"></div>
+          <div id="scan-description" class="scan-description" style="display: none;"></div>
         </div>
       </section>
     `;

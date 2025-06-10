@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@hapi/hapi": "^21.4.0",
+    "@supabase/supabase-js": "^2.50.0",
     "bcrypt": "^6.0.0",
     "chart.js": "^4.4.9",
     "crypto": "^1.0.1",

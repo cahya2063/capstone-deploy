@@ -5,7 +5,6 @@ import LandingPage from '../pages/landing/landing-page';
 import DashboardPage from '../pages/dashboard/dashboard.page';
 import WisataPage from '../pages/wisata/wisata-page';
 
-
 const routes = {
   '/': {
     page: new LandingPage(),

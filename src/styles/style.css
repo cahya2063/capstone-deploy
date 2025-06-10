@@ -403,7 +403,7 @@ header {
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0px 5px 30px rgba(34, 35, 58, 0.3);
-  max-width: 500px;
+  max-width: 800px;
   margin-inline: auto;
   text-align: center;
 }
@@ -479,6 +479,36 @@ header {
   background-color: #333;
 }
 
+.scan-description {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  text-align: start;
+}
+
+.btn-lokasi {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-lokasi:hover {
+  background-color: #0056b3;
+}
+
+
 /* DASHBOARD */
 
 .chart-container {
@@ -529,6 +559,31 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+.scan-list-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+.scan-list li {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.save-btn {
+  background: orangered;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.save-btn:hover {
+  color: green;
+  transform: scale(1.2);
+}
+
 /* WISATA */
 .wisata-section {
   padding: 2rem;
@@ -554,7 +609,7 @@ header {
   background: white;
   border: 2px solid rgba(189, 181, 181, 0.5);
   border-radius: 10px;
-  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   transition: transform 0.2s ease;
@@ -812,7 +867,6 @@ footer .container {
 @media (max-width: 471px) {
   footer .container {
     width: 100%;
-
   }
   .switch-image-container {
     width: auto;

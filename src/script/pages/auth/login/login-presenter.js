@@ -20,7 +20,7 @@ class LoginPresenter {
         return;
       }
 
-      localStorage.setItem('token', loginResult.user.token);
+      localStorage.setItem('token', loginResult.data.token);
       window.dispatchEvent(
         new CustomEvent('auth-change', {
           detail: { isLoggedIn: true },
@@ -28,7 +28,6 @@ class LoginPresenter {
       );
 
       window.location.hash = '#/dashboard';
-
     } catch (error) {
       this._view.showError(loginResult.message);
     }

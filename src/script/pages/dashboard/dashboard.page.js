@@ -1,4 +1,5 @@
 import { Chart, registerables } from 'chart.js';
+import { getSaveScan } from '../../data/indexed_db';
 Chart.register(...registerables);
 export default class DashboardPage {
   async render() {
@@ -13,9 +14,18 @@ export default class DashboardPage {
             <canvas id="barChart" class="chart-item-1"></canvas>
             <canvas id="doughnutChart" class="chart-item-2"></canvas>
         </div>
+        <div class="scan-list-container">
+          <h3>Scan History</h3>
+          <ul id="scanList" class="scan-list"></ul>
+        </div>
         `;
   }
   async afterRender() {
+    this.initChart();
+    this.displayScanData();
+  }
+
+  async initChart(){
     const ctx = document.getElementById('doughnutChart').getContext('2d');
 
     const doughnutChart = new Chart(ctx, {
@@ -67,4 +77,27 @@ export default class DashboardPage {
       },
     });
   }
+
+  async displayScanData() {
+  const data = await getSaveScan();
+  const listContainer = document.getElementById('scanList');
+
+  if (!data.length) {
+    listContainer.innerHTML = '<li>Belum ada hasil scan yang tersimpan.</li>';
+    return;
+  }
+
+listContainer.innerHTML = data.map((item) => `
+  <li style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #ddd;">
+    <div>
+      <strong>Nama:</strong> ${item.label_output || 'Tidak ada nama'}
+    </div>
+    <button class="save-btn" data-id="${item.id}" title="Simpan data ini">
+      💾
+    </button>
+  </li>
+`).join('');
+
+}
+
 }
