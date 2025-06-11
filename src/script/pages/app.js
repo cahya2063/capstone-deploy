@@ -92,6 +92,20 @@ class App {
         this.logout();
       });
     }
+    this._highlightActiveNav();
+  }
+
+  _highlightActiveNav() {
+    const links = document.querySelectorAll('nav li a');
+    const currentHash = window.location.hash;
+
+    links.forEach((link) => {
+      if (link.getAttribute('href') === currentHash) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
   logout() {

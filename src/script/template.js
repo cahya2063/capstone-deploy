@@ -11,6 +11,7 @@ export function headerDashboard() {
       <li><a href="#/dashboard" id="login-button">Dashboard</a></li>
       <li><a href="#/scan" id="scan-button">Scan</a></li>
       <li><a href="#/wisata" id="list-button">Wisata</a></li>
+      <li><a href="#/save-scan" id="save-scan-button">Tersimpan</a></li>
       <li><a href="#/logout" id="logout-button">Log out</a></li>
 
   `;

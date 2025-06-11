@@ -51,8 +51,6 @@ export default class LoginPage {
     const navListMain = document.getElementById('navlist-main');
     const navList = document.getElementById('navlist');
 
-    // navListMain.innerHTML = '';
-    // navList.innerHTML = headerNotLogin();
     const form = document.getElementById('login-form');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

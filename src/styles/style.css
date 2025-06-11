@@ -125,9 +125,17 @@ header {
   color: #333;
   text-decoration: none;
 }
+
+nav li a.active {
+  color: orangered;
+  text-decoration: underline;
+  font-weight: 800;
+  text-decoration-color: orangered;
+}
+
 #main-content {
   display: grid;
-  padding-top: 100px; /* Sesuaikan tinggi header-mu */
+  padding-top: 100px;
   width: 100%;
 }
 
@@ -226,7 +234,6 @@ header {
 }
 .enpowering {
   width: 100%;
-  /* flex-direction: column; */
   justify-content: center;
   font-family: 'Poppins';
   font-size: 60px;
@@ -372,7 +379,6 @@ header {
   transform: rotateX(var(--rX)) rotateY(var(--rY));
   transition: 0.2s;
   padding: 20px;
-  /* box-shadow: 0 30px 20px #5555; */
   box-shadow:
     10px 10px 15px #5555,
     /* Bayangan di kanan bawah */ -10px -10px 15px #5555;
@@ -514,8 +520,8 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 30px; /* jarak antar chart */
-  flex-wrap: wrap; /* biar responsif, chart bisa turun kalau layar kecil */
+  gap: 30px;
+  flex-wrap: wrap;
   padding: 20px;
   width: 90%;
   margin-inline: auto;
@@ -539,7 +545,6 @@ header {
   display: grid;
   margin-inline: auto;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  /* flex-wrap: wrap; */
   width: 80%;
   justify-content: space-evenly;
   gap: 20px;
@@ -550,7 +555,6 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 60px;
-  /* border-radius: 5px; */
   border-left: 6px solid orangered;
   font-weight: 500;
 
@@ -560,27 +564,154 @@ header {
 }
 
 .scan-list-container {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #f8f9fa;
+  margin-block: 20px;
+  background-color: white;
+  width: 90%;
+  min-height: 80px;
+  margin-inline: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 2px solid #50bfff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.save-scan-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 15px;
+  background: #a1b2cb;
   border-radius: 8px;
-  text-align: center;
+  border: 1px solid #d0e3ff;
 }
-.scan-list li {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ddd;
+.save-scan-container{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
-.save-btn {
-  background: orangered;
-  border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+
+.btn{
+  width: 150px;
+  height: 40px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: orangered;
 }
-.save-btn:hover {
-  color: green;
-  transform: scale(1.2);
+
+/* Save Scan */
+.postcard {
+  flex-wrap: wrap;
+  display: flex;
+  width: 80%;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+  margin-inline: auto;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+
+	&.dark {
+		background-color: #18151f;
+	}
+	&.light {
+		background-color: #e1e5ea;
+	}
+	
+	
+  a {
+    color: inherit;
+  }
+	
+	h1{
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+  .postcard__title {
+    font-size: 1.75rem;
+  }
+
+  .postcard__img {
+    height: 200px;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .postcard__img_link {
+    display: contents;
+  }
+
+  .postcard__bar {
+    width: 50px;
+    height: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+  }
+
+  .postcard__text {
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postcard__preview-txt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    height: 100%;
+  }
+
+  .postcard__tagbox {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+		padding: 0;
+    justify-content: center;
+
+    .tag__item {
+      display: inline-block;
+      background: rgba(83, 83, 83, 0.4);
+      border-radius: 3px;
+      padding: 2.5px 10px;
+      margin: 0 5px 5px 0;
+      user-select: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: rgba(83, 83, 83, 0.8);
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(-70deg, #424242, transparent 50%);
+    opacity: 1;
+    border-radius: 10px;
+  }
+
+  &:hover .postcard__bar {
+    width: 100px;
+  }
 }
 
 /* WISATA */
@@ -661,10 +792,10 @@ header {
 .right-side .content {
   width: 95%;
   height: 95%;
-  background-image: url('../public/images/borobudur.jpg'); /*Path ke gambarmu */
-  background-size: cover; /* Biar gambar nutup seluruh area */
-  background-position: center; /* Tengahin gambarnya */
-  background-repeat: no-repeat; /* Biar nggak ngulang */
+  background-image: url('../public/images/borobudur.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -729,19 +860,16 @@ footer {
   border-color: 2px solid #000;
   width: 100%;
 }
-/* FOOTER */
 
 footer .container {
   margin-inline: auto;
   background-color: rgb(255, 255, 255);
-  /* width: 90%; */
   padding-inline: 25px;
   border-radius: 15px;
   border: 3px solid #000;
 }
 .footer {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 20px 0;
   gap: 20px;
@@ -812,7 +940,6 @@ footer .container {
   .candi-img-2 {
     width: 80%;
     display: block;
-    /* margin-bottom: 50px; */
   }
   .enpowering {
     font-size: 40px;
@@ -835,8 +962,6 @@ footer .container {
     margin-block: 10px;
   }
 
-  /* landing awal */
-
   #map {
     margin-inline: 10px;
   }
@@ -846,6 +971,10 @@ footer .container {
 
   .left-side {
     width: 100%;
+  }
+
+  .postcard{
+    width: 90%;
   }
 }
 @media (max-width: 768px) {
@@ -861,6 +990,10 @@ footer .container {
   }
   .chart-item-2 {
     width: 95% !important;
+  }
+  .save-scan-item{
+    flex-direction: column;
+    gap: 13px;
   }
 }
 @media (max-width: 471px) {
