@@ -5,10 +5,7 @@ const crypto = require('crypto');
 const checkDatabaseHandler = async (request, h) => {
   try {
     // Cek koneksi dengan melakukan query sederhana ke Supabase
-    const { data, error } = await db
-      .from('users')
-      .select('*')
-      .limit(1);
+    const { data, error } = await db.from('users').select('*').limit(1);
 
     if (error) {
       console.error('Koneksi gagal:', error);
@@ -33,12 +30,12 @@ const registerHandler = async (request, h) => {
     const { data, error } = await db
       .from('users')
       .insert([
-        { 
-          username: username, 
-          email: email, 
-          password: hashedPassword, 
-          token: token 
-        }
+        {
+          username: username,
+          email: email,
+          password: hashedPassword,
+          token: token,
+        },
       ])
       .select();
 
@@ -46,31 +43,37 @@ const registerHandler = async (request, h) => {
       console.error('Error registrasi:', error);
       // Handle error unik (duplicate email)
       if (error.code === '23505') {
-        return h.response({ 
-          status: 'fail', 
-          message: 'Email sudah terdaftar' 
-        }).code(409);
+        return h
+          .response({
+            status: 'fail',
+            message: 'Email sudah terdaftar',
+          })
+          .code(409);
       }
-      return h.response({ 
-        status: 'error', 
-        message: 'Gagal mendaftarkan user',
-        details: error.message 
-      }).code(400);
+      return h
+        .response({
+          status: 'error',
+          message: 'Gagal mendaftarkan user',
+          details: error.message,
+        })
+        .code(400);
     }
 
     return h
-      .response({ 
+      .response({
         status: 'success',
-        message: 'User berhasil terdaftar', 
-        data: data[0] 
+        message: 'User berhasil terdaftar',
+        data: data[0],
       })
       .code(201);
   } catch (err) {
     console.error('Error registrasi:', err);
-    return h.response({ 
-      status: 'error', 
-      message: 'Terjadi kesalahan server' 
-    }).code(500);
+    return h
+      .response({
+        status: 'error',
+        message: 'Terjadi kesalahan server',
+      })
+      .code(500);
   }
 };
 
@@ -79,11 +82,7 @@ const loginHandler = async (request, h) => {
 
   try {
     // Menggunakan Supabase untuk query data
-    const { data: users, error } = await db
-      .from('users')
-      .select('*')
-      .eq('email', email)
-      .limit(1);
+    const { data: users, error } = await db.from('users').select('*').eq('email', email).limit(1);
 
     if (error) {
       console.error('Error login:', error);
@@ -91,28 +90,29 @@ const loginHandler = async (request, h) => {
     }
 
     if (users.length === 0) {
-      return h.response({ 
-        status: 'fail', 
-        message: 'User tidak ditemukan' 
-      }).code(404);
+      return h
+        .response({
+          status: 'fail',
+          message: 'User tidak ditemukan',
+        })
+        .code(404);
     }
 
     const user = users[0];
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) {
-      return h.response({ 
-        status: 'fail', 
-        message: 'Email atau password salah' 
-      }).code(401);
+      return h
+        .response({
+          status: 'fail',
+          message: 'Email atau password salah',
+        })
+        .code(401);
     }
 
     // Generate token baru setiap login (opsional)
     const newToken = crypto.randomBytes(32).toString('hex');
-    await db
-      .from('users')
-      .update({ token: newToken })
-      .eq('id', user.id);
+    await db.from('users').update({ token: newToken }).eq('id', user.id);
 
     return h
       .response({
@@ -128,10 +128,12 @@ const loginHandler = async (request, h) => {
       .code(200);
   } catch (err) {
     console.error('Error login:', err);
-    return h.response({ 
-      status: 'error', 
-      message: 'Gagal melakukan login' 
-    }).code(500);
+    return h
+      .response({
+        status: 'error',
+        message: 'Gagal melakukan login',
+      })
+      .code(500);
   }
 };
 

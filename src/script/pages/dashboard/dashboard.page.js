@@ -1,34 +1,42 @@
 import { Chart, registerables } from 'chart.js';
-import { getSaveScan } from '../../data/indexed_db';
+import DashboardPresenter from './dashboard-presenter';
+
 Chart.register(...registerables);
+
 export default class DashboardPage {
+  constructor() {
+    this.presenter = new DashboardPresenter(this); // inject view
+  }
+
   async render() {
     return `
-        <div class="dash-card">
-          <div class="dash-item">Wisata</div>
-          <div class="dash-item">Pengguna</div>
-          <div class="dash-item">Data</div>
-          <div class="dash-item">Total</div>
-        </div>
-        <div class="chart-container">
-            <canvas id="barChart" class="chart-item-1"></canvas>
-            <canvas id="doughnutChart" class="chart-item-2"></canvas>
-        </div>
-        <div class="scan-list-container">
-          <h3>Scan History</h3>
-          <ul id="scanList" class="scan-list"></ul>
-        </div>
-        `;
+      <div class="dash-card">
+        <div class="dash-item">Wisata</div>
+        <div class="dash-item">Pengguna</div>
+        <div class="dash-item">Data</div>
+        <div class="dash-item">Total</div>
+      </div>
+      <div class="chart-container">
+        <canvas id="barChart" class="chart-item-1"></canvas>
+        <canvas id="doughnutChart" class="chart-item-2"></canvas>
+      </div>
+      <div class="scan-list-container">
+        <h3>Scan History</h3>
+        <ul id="scanList" class="scan-list"></ul>
+      </div>
+    `;
   }
+
   async afterRender() {
     this.initChart();
-    this.displayScanData();
+    this.presenter.loadScanHistory();
   }
 
-  async initChart(){
+  async initChart() {
     const ctx = document.getElementById('doughnutChart').getContext('2d');
+    const ctx1 = document.getElementById('barChart').getContext('2d');
 
-    const doughnutChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'doughnut',
       data: {
         labels: ['Red', 'Blue', 'Yellow'],
@@ -44,16 +52,12 @@ export default class DashboardPage {
       options: {
         responsive: true,
         scales: {
-          y: {
-            beginAtZero: true,
-          },
+          y: { beginAtZero: true },
         },
       },
     });
 
-    const ctx1 = document.getElementById('barChart').getContext('2d');
-
-    const barChart = new Chart(ctx1, {
+    new Chart(ctx1, {
       type: 'line',
       data: {
         labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'],
@@ -70,34 +74,41 @@ export default class DashboardPage {
       options: {
         responsive: true,
         scales: {
-          y: {
-            beginAtZero: true,
-          },
+          y: { beginAtZero: true },
         },
       },
     });
   }
 
-  async displayScanData() {
-  const data = await getSaveScan();
-  const listContainer = document.getElementById('scanList');
+  showScanList(unSavedData, allData) {
+    const listContainer = document.querySelector('.scan-list-container');
 
-  if (!data.length) {
-    listContainer.innerHTML = '<li>Belum ada hasil scan yang tersimpan.</li>';
-    return;
+    if (!unSavedData.length) {
+      listContainer.innerHTML = '<p>Belum ada history scan.</p>';
+      return;
+    }
+
+    const maxDisplay = 5;
+    const recentData = unSavedData.slice(-maxDisplay);
+
+    listContainer.innerHTML = recentData
+      .map(
+        (item) => `
+      <div class="save-scan-item">
+        <strong>Scan :</strong> ${item.label_output || 'Tidak ada nama'}
+        <button class="save-btn btn" data-id="${item.id}" title="Simpan data ini">
+          save scan
+        </button>
+      </div>
+    `,
+      )
+      .join('');
+
+    document.querySelectorAll('.save-btn').forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const id = e.currentTarget.getAttribute('data-id');
+        this.presenter.saveScanData(id, allData);
+      });
+    });
   }
-
-listContainer.innerHTML = data.map((item) => `
-  <li style="display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid #ddd;">
-    <div>
-      <strong>Nama:</strong> ${item.label_output || 'Tidak ada nama'}
-    </div>
-    <button class="save-btn" data-id="${item.id}" title="Simpan data ini">
-      💾
-    </button>
-  </li>
-`).join('');
-
-}
-
 }
