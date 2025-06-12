@@ -16,11 +16,11 @@ class WisataPage {
 
   _generateCards() {
     const data = [
+      { name: 'Candi Borobudur', location: 'Kab. Magelang', img: 'images/wisata/borobudur.jpg' },
+      { name: 'Candi Prambanan', location: 'Kab. Yogyakarta', img: 'images/wisata/prambanan.jpg' },
       { name: 'Masjid Gedhe Kauman', location: 'Kab. Yogyakarta', img: 'images/wisata/masjid-kauman.jpg' },
       { name: 'Benteng Vredeburg', location: 'Kab. Yogyakarta', img: 'images/wisata/vredeburg.jpg' },
       { name: 'Museum Gunungapi Merapi', location: 'Kab. Yogyakarta', img: 'images/wisata/museum-merapi.jpg' },
-      { name: 'Candi Borobudur', location: 'Kab. Magelang', img: 'images/wisata/borobudur.jpg' },
-      { name: 'Candi Prambanan', location: 'Kab. Yogyakarta', img: 'images/wisata/prambanan.jpg' },
       { name: 'Monumen Serangan 1 Maret', location: 'Kab. Yogyakarta', img: 'images/wisata/monumen-serangan-1-maret.jpg' },
       { name: 'Gedung Agung Istana Kepresidenan', location: 'Kab. Yogyakarta', img: 'images/wisata/gedung-agung.jpg' },
       { name: 'Taman Sari', location: 'Kab. Yogyakarta', img: 'images/wisata/taman-sari.jpg' },
