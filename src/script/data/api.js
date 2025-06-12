@@ -13,10 +13,16 @@ export const register = async ({ username, email, password }) => {
 
     const data = await response.json();
 
+    if (!data) {
+      return {
+        error: true,
+        message: data.message || 'login gagal',
+      };
+    }
+
     return {
-      ok: response.ok,
-      status: response.status,
-      ...data,
+      error: false,
+      loginResult: data,
     };
   } catch (error) {
     return {

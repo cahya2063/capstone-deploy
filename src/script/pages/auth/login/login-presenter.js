@@ -20,7 +20,7 @@ class LoginPresenter {
         return;
       }
 
-      localStorage.setItem('token', loginResult.data.token);
+      localStorage.setItem('token', loginResult.user.token);
       window.dispatchEvent(
         new CustomEvent('auth-change', {
           detail: { isLoggedIn: true },
