@@ -67,12 +67,17 @@ export async function predict(imageFile) {
     const formData = new FormData();
     formData.append('file', imageFile);
 
-    const response = await fetch('http://127.0.0.1:8000/api/predict', {
+    console.log('image',imageFile);
+    
+    const response = await fetch('https://capstoneml.pythonanywhere.com/api/predict', {
       method: 'POST',
+
       body: formData,
     });
 
     const result = await response.json();
+    console.log('result',result);
+    
 
     if (result.error) {
       return {

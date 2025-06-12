@@ -33,7 +33,7 @@ export default class SaveScanPage {
         (item) => `
         <article class="postcard dark blue">
           <a class="postcard__img_link" href="#">
-            <img class="postcard__img" src="${item.image_url}" alt="Image Title" />
+            <img class="postcard__img" src="https://capstoneml.pythonanywhere.com${item.image_url}" alt="Image Title" />
           </a>
           <div class="postcard__text">
             <h1 class="postcard__title blue">${item.label_output}</h1>
