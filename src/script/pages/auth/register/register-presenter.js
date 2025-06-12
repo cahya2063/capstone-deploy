@@ -13,7 +13,9 @@ export default class RegisterPresenter {
 
       const response = await register({ username, email, password });
 
-      if (!response.ok) {
+      console.log('register', response);
+      
+      if (response.error) {
         throw new Error(response.message || 'Registrasi gagal');
       }
       window.location.hash = '/login';

@@ -22,7 +22,7 @@ export default class RegisterPage {
                   </p>
 
                   <form action="" id="register-form">
-                      <div id="loginError" class="error-message" style="display:none"></div>
+                      <div id="errorMessage" class="error-message" style="display:none"></div>
                       <input id="name" name="username" class="input-register" type="text" placeholder="daftarkan nama mu.." required />
                       <input id="email" name="email" class="input-register" type="email" placeholder="daftarkan email mu.." required />
                       <input id="password" name="password" class="input-register" type="password" placeholder="masukkan password" required />
