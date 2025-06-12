@@ -1,20 +1,20 @@
-const mysql = require('mysql2');
+const { Pool } = require('pg');
 require('dotenv').config();
 
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+const db = new Pool({
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
 });
 
-db.connect((err) => {
+db.connect((err, client, release) => {
   if (err) {
-    console.error('Koneksi database gagal: ' + err.stack);
-    return;
+    return console.error('Koneksi database gagal:', err.stack);
   }
-  console.log('Terhubung ke database dengan ID: ' + db.threadId);
+  console.log('Terhubung ke database PostgreSQL');
+  release(); // supaya koneksinya dilepas
 });
 
 module.exports = db;
