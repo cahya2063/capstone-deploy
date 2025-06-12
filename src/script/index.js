@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     navigationDrawer: document.querySelector('#navigation-drawer'),
   });
 
-  const response = await fetch('http://localhost:3000/api/check-db');
-  const data = await response.json();
-  console.log('response database : ', data);
 
   await app.renderPage();
 
