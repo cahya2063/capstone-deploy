@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-"build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
     "start": "node backend/server.js",
     "serve": "npm run build && http-server ./dist --port 3000",
@@ -36,9 +36,10 @@
     "bcrypt": "^6.0.0",
     "chart.js": "^4.4.9",
     "crypto": "^1.0.1",
+    "dotenv": "^16.5.0",
     "idb": "^8.0.3",
     "leaflet": "^1.9.4",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
     "nanoid": "^3.3.11"
   }
 }

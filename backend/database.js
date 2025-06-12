@@ -1,7 +1,20 @@
-// supabaseClient.js
-const { createClient } = require('@supabase/supabase-js');
+const mysql = require('mysql2');
+require('dotenv').config();
 
-const supabaseUrl = 'https://flhgnivsvuixjyprsygt.supabase.co'; // Ganti dengan URL proyek kamu
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsaGduaXZzdnVpeGp5cHJzeWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NDMzNjUsImV4cCI6MjA2NTExOTM2NX0.PNmZKr1V8F9INdfkaUV0a02fCrpLaScQzSHRvXhwQ14'; // API Key Supabase kamu
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+db.connect((err) => {
+  if (err) {
+    console.error('Koneksi database gagal: ' + err.stack);
+    return;
+  }
+  console.log('Terhubung ke database dengan ID: ' + db.threadId);
+});
+
+module.exports = db;
