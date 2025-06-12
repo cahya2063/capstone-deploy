@@ -1,4 +1,4 @@
-const BASE_URL = 'https://caspstone-deploy-production.up.railway.app/'
+const BASE_URL = 'https://caspstone-deploy-production.up.railway.app'
 
 // == Register == //
 export const register = async ({ username, email, password }) => {
