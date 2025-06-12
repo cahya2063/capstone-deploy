@@ -25,6 +25,7 @@ class WisataPage {
       { name: 'Gedung Agung Istana Kepresidenan', location: 'Kab. Yogyakarta', img: 'images/wisata/gedung-agung.jpg' },
       { name: 'Taman Sari', location: 'Kab. Yogyakarta', img: 'images/wisata/taman-sari.jpg' },
       { name: 'Situs Ratu Boko', location: 'Kab. Yogyakarta', img: 'images/wisata/ratu-boko.jpg' },
+      { name: 'Tugu Yogyakarta', location: 'Kab. Yogyakarta', img: 'images/wisata/tugu-jogja.jpg' },
     ];
 
     return data
