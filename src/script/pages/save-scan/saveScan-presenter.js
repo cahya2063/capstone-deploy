@@ -16,6 +16,7 @@ class SaveScanPresenter {
 
     if (id) {
       await deleteSaveScan(id);
+      alert('berhasil menghapus scan tersimpan')
       this.loadSaveScan(); // refresh view
     }
   }
