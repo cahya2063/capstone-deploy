@@ -109,7 +109,7 @@ export default class LandingPage {
             <div class="content-1">
                 <h3>Muh. Nur Rohman</h3>
                 <p>MC-11</p>
-                <img src="images/profile/rama.jpeg" alt="">
+                <img src="images/profile/rohman.jpeg" alt="">
             </div>
         </div>
         <div class="wrap">
