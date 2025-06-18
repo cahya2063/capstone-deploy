@@ -16,26 +16,26 @@ class WisataPage {
 
   _generateCards() {
     const data = [
-      { name: 'Kawah Ijen', location: 'Kab. Banyuwangi', img: 'images/wisata/kawah-ijen.jpg' },
-      { name: 'Pulau Merah', location: 'Kab. Banyuwangi', img: 'images/wisata/pulau-merah.jpg' },
+      { name: 'Gedung Agung', location: 'Kab. Yogyakarta', img: 'images/wisata/gedung-agung.jpg' },
+      { name: 'Masjid Kauman', location: 'Kab. Yogyakarta', img: 'images/wisata/masjid-kauman.jpg' },
       {
-        name: 'Dataran Tinggi Dieng',
-        location: 'Kab. Wonosobo',
-        img: 'images/wisata/dataran-tinggi-dieng.jpg',
+        name: 'Monumen Serangan 1 Maret',
+        location: 'Kab. Yogyakarta',
+        img: 'images/wisata/monumen-serangan-1-maret.jpg',
       },
       { name: 'Candi Borobudur', location: 'Kab. Magelang', img: 'images/wisata/borobudur.jpg' },
-      { name: 'Candi Prambanan', location: 'Kab. Sleman', img: 'images/wisata/prambanan.jpg' },
+      { name: 'Museum Merapi', location: 'Kab. Yogyakarta', img: 'images/wisata/museum-merapi.jpg' },
       {
-        name: 'Candi Bajang Ratu',
+        name: 'Situs Ratu Boko',
         location: 'Kab. Mojokerto',
-        img: 'images/wisata/bajang-ratu.jpg',
+        img: 'images/wisata/ratu-boko.jpg',
       },
-      { name: 'Gunung Merbabu', location: 'Kab. Magelang', img: 'images/wisata/merbabu.jpg' },
-      { name: 'Jalan Malioboro', location: 'Kab. Yogyakarta', img: 'images/wisata/malioboro.jpg' },
+      { name: 'Taman Sari', location: 'Kab. Yogyakarta', img: 'images/wisata/taman-sari.jpg' },
+      { name: 'Tugu Jogja', location: 'Kab. Yogyakarta', img: 'images/wisata/tugu-jogja.jpg' },
       {
-        name: 'Air Terjun Kembang Soka',
+        name: 'Benteng Vredeburg',
         location: 'Kab. Yogyakarta',
-        img: 'images/wisata/kembang-soka.jpg',
+        img: 'images/wisata/vredeburg.jpg',
       },
     ];
 
